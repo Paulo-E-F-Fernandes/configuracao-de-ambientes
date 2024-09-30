@@ -17,6 +17,11 @@
   - O site acessado em setembro de 2024 foi https://docs.github.com/pt/authentication, e conseguimos encontrar informações sobre os comandos de checagem das chaves existentes, geração de novas chaves e soluções de problemas;
   - Alguns comandos:
     - Checar as chaves existentes: `ls -al ~/.ssh`;
+    - Verifique na listagem de chaves se existe alguma chave _SSH_ pública:
+      - Por padrão, os nomes de arquivos de chaves públicas com suporte para o _GitHub_ são um dos seguintes:
+        - _id_rsa.pub_
+        - _id_ecdsa.pub_
+        - _id_ed25519.pub_
     - Gerar a chave _ssh_ usada no _GitHub_: `ssh-keygen -t ed25519 -C "your_email@example.com" `:
       - **Obs.:** Até conseguimos gerar uma chave _ssh_ em um arquivo customizado, através do comando citado abaixo, que pegamos do site também citado abaixo. Mas o problema é que utilizar essa chave no _GitHub_, a conexão não estava sendo autorizada, resolvendo apenas ao gerarmos a chave sem alterar o nome do arquivo;
       - Executar o comando abaixo no terminal do _GitBash_, para gerar um arquivo chamado "id_git-hub":
