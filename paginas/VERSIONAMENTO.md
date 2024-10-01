@@ -85,4 +85,10 @@
 	  Port 443
 	```
 
+## Comandos úteis
+- _**git add:**_ Adicionar os arquivos no _index_ do _git_;
+- _**git commit:**_ Grava as alterações no repositório:
+- _**git status:**_ Para identificar a situação da árvore de do _git_;
+- 
+
 > [Home](../README.md)
