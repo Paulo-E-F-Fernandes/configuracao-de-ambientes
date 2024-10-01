@@ -29,11 +29,31 @@
         - Essa dica foi obtida no mês de setembro de 2024 no site https://cloud.google.com/compute/docs/connect/create-ssh-keys?hl=pt-br#windows-10-or-later,
   - **Obs.:** Ao realizar o clone de algum servidor remoto, quando for realizada a autenticação, será solicitado que seja incluída a chave pública do repositório no arquivo _"known_hosts"_, que fica no mesmo diretório das chaves _ssh_.
 
+## Assinatura dos commits
+
+- Além de adicionar a chave _ssh_ para realizar a autenticação dos _commits_ ao repositório remoto;
+- Podemos também incluir a mesma chave _ssh_ para realizar a assinatura do _commit_;
+  - Quando adicionamos a chave de assinatura na configuração do _GitHub_, també habilitamos o modo vigilante para sinalizar os _commits_ verificados e não verificados;
+- Após configurar a chave de assinatura no _GitHub_, devemos configurar o cliente do _git_ para assinar os commits, para isso, devemos fazer o seguinte:
+  - Executar o comando `git config --global commit.gpgsign true` ativando a assinatura de todos os _commits_ para todos os repositórios locais (`--global`);
+    - Para ativar em um repositório local específico `git config commit.gpgsign true`.
+  - Sinalizar o _gpg_ para aceitar chaves no formato _ssh_:
+    - `git config --global gpg.format ssh`
+  - Sinalizar a chave _ssh_ que deve ser utilizada:
+    - `git config --global user.signingkey /PATH/TO/.SSH/KEY.PUB`
+  - Ao fazer commit das alterações no branch local, adicionar a flag `-S` no comando do `git commit`:
+    ```
+    $ git commit -S -m "YOUR_COMMIT_MESSAGE"
+    # Creates a signed commit
+    ```
+
 ## Ferramentas
+
 - _**GitBash:**_ Um terminal instalado junto da instalação do _git_, permitindo utilizar os comando do _git_ em comando utilizados no _linux_; 
 - _**[GitKraken](https://www.gitkraken.com/):**_ _GUI (graphical user interface)_ para a utilização do _Git_;
 
 ## Servidores remotos
+
 - Podemos criar os repositórios remoto no [GitHub](https://github.com/), [BitBucket](https://bitbucket.org/) ou qualquer outro repositório remoto;
   - Após criado o repositório remoto, podemos criar o repositório local (através do terminal) e associar o remoto a esse local que foi criado:
   ```
@@ -60,6 +80,7 @@
 	- `git remote -v` - Para verificar os repositórios remotos adicionados;
 
 ## Alguns problemas
+
 - Caso ocorrer algum problema parecido com o abaixo:
   ```
   $ git pull origin master
@@ -86,9 +107,9 @@
 	```
 
 ## Comandos úteis
+
 - _**git add:**_ Adicionar os arquivos no _index_ do _git_;
 - _**git commit:**_ Grava as alterações no repositório:
 - _**git status:**_ Para identificar a situação da árvore de do _git_;
-- 
 
 > [Home](../README.md)
